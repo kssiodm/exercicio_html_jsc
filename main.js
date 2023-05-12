@@ -2,19 +2,20 @@ const form = document.getElementById('form_dep')
 
 form.addEventListener('submit', function(e){
 
-    let formValido = false;
+    // let formValido = false;
 
     e.preventDefault();
 
     const valor_a = document.getElementById('numero_a');
     const valor_b = document.getElementById('numero_b');
-    const menssagemdeSucesso = ` ${valor_b.value} é maior que ${valor_a.value}`
+    const mensagemdeSucesso = `<b>${valor_b.value}</b> é maior que <b>${valor_a.value}</b>`
 
-    if(valor_b.value > valor_a.value){
-        alert(menssagemdeSucesso)
-        valor_b = '';
-        valor_a = '';
+    if(parseInt(valor_b.value) > parseInt(valor_a.value)){
+        const containerMensagemdeSucesso = document.querySelector('.maior');
+        containerMensagemdeSucesso.innerHTML = mensagemdeSucesso;
+        containerMensagemdeSucesso.style.display = 'block'
+        // document.querySelector('.maior').style.display = 'block'
     }else{
-        alert('inválido')
+        document.querySelector('.invalido').style.display = 'block'
     }
 })
